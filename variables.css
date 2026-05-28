@@ -1,0 +1,40 @@
+:root {
+    /* Primary Colors */
+    --primary-color: #e60000;
+    --primary-dark: #b30000;
+    --primary-light: #ff3333;
+    
+    /* Background Colors */
+    --bg-color: #ffffff;
+    --bg-alt: #f8f8f8;
+    --bg-dark: #111111;
+    --bg-red: #ff0000;
+    
+    /* Text Colors */
+    --text-color: #111111;
+    --text-muted: #757575;
+    --text-white: #ffffff;
+    
+    /* UI Elements */
+    --border-color: #e5e5e5;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+    
+    /* Layout */
+    --navbar-height: 80px;
+    --container-width: 1200px;
+    --border-radius: 8px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --bg-color: #111111;
+    --bg-alt: #1a1a1a;
+    --text-color: #ffffff;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+}

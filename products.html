@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- =========================================================
+         META INFO
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | Nexstep India</title>
+
+    <!-- =========================================================
+         GOOGLE FONT + ICONS
+    ========================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- =========================================================
+         CSS FILES
+    ========================================================== -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <!-- =========================================================
+         PREMIUM SHOP STYLE
+    ========================================================== -->
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+
+            background:
+            linear-gradient(
+                135deg,
+                #120002,
+                #2b0008,
+                #4b000d,
+                #180004
+            );
+
+            color:white;
+
+            overflow-x:hidden;
+        }
+
+        :root{
+
+            --gold:#d4af37;
+            --light-gold:#f7dc7a;
+            --glass:rgba(255,255,255,0.05);
+            --border:rgba(255,255,255,0.08);
+        }
+
+        body::before{
+            content:"";
+
+            position:fixed;
+
+            top:-150px;
+            right:-150px;
+
+            width:500px;
+            height:500px;
+
+            background:
+            radial-gradient(
+                circle,
+                rgba(212,175,55,0.18),
+                transparent 70%
+            );
+
+            filter:blur(60px);
+
+            z-index:-1;
+        }
+
+        .shop-section{
+
+            padding:
+            120px 6% 80px;
+        }
+
+        .shop-header{
+
+            margin-bottom:40px;
+        }
+
+        .shop-title{
+
+            font-size:3.2rem;
+            font-weight:800;
+
+            color:#ffe48a;
+        }
+
+        .shop-subtitle{
+
+            margin-top:12px;
+
+            color:
+            rgba(255,255,255,0.7);
+
+            max-width:700px;
+
+            line-height:1.8;
+        }
+
+        .top-tabs{
+
+            display:flex;
+            gap:18px;
+            flex-wrap:wrap;
+
+            margin:35px 0 50px;
+        }
+
+        .tab-btn{
+
+            padding:14px 24px;
+
+            border:none;
+
+            border-radius:14px;
+
+            background:
+            rgba(255,255,255,0.06);
+
+            border:
+            1px solid rgba(255,255,255,0.08);
+
+            color:white;
+
+            cursor:pointer;
+
+            transition:0.35s ease;
+
+            font-weight:600;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover{
+
+            background:
+            linear-gradient(
+                135deg,
+                #d4af37,
+                #f7dc7a
+            );
+
+            color:#2a0000;
+
+            transform:translateY(-4px);
+        }
+
+        .shop-layout{
+
+            display:grid;
+
+            grid-template-columns:
+            280px 1fr;
+
+            gap:35px;
+        }
+
+        .filter-sidebar{
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid var(--border);
+
+            border-radius:30px;
+
+            padding:30px;
+
+            backdrop-filter:blur(12px);
+
+            height:fit-content;
+
+            box-shadow:
+            0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .filter-title{
+
+            font-size:1.4rem;
+            font-weight:700;
+
+            color:#ffe48a;
+
+            margin-bottom:25px;
+        }
+
+        .filter-group{
+
+            margin-bottom:35px;
+        }
+
+        .filter-group h4{
+
+            margin-bottom:15px;
+        }
+
+        .filter-option{
+
+            margin-bottom:12px;
+        }
+
+        .filter-option label{
+
+            cursor:pointer;
+
+            color:
+            rgba(255,255,255,0.75);
+        }
+
+        input[type="range"]{
+
+            width:100%;
+
+            accent-color:#d4af37;
+        }
+
+        .price-value{
+
+            margin-top:10px;
+
+            color:#ffe48a;
+
+            font-weight:700;
+        }
+
+        .search-box{
+
+            position:relative;
+
+            margin-bottom:30px;
+        }
+
+        .search-box input{
+
+            width:100%;
+
+            padding:
+            18px 20px 18px 55px;
+
+            border:none;
+            outline:none;
+
+            border-radius:18px;
+
+            background:
+            rgba(255,255,255,0.06);
+
+            color:white;
+
+            border:
+            1px solid rgba(255,255,255,0.08);
+
+            font-size:1rem;
+        }
+
+        .search-box i{
+
+            position:absolute;
+
+            top:50%;
+            left:20px;
+
+            transform:translateY(-50%);
+
+            color:#ffe48a;
+        }
+
+        .section-title{
+
+            margin-bottom:25px;
+            font-size:2rem;
+            color:#ffe48a;
+            font-weight:800;
+        }
+
+        .product-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fill,minmax(280px,1fr));
+
+            gap:30px;
+
+            margin-bottom:70px;
+        }
+
+        .product-card{
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid rgba(255,255,255,0.08);
+
+            border-radius:28px;
+
+            overflow:hidden;
+
+            transition:0.4s ease;
+
+            backdrop-filter:blur(10px);
+
+            position:relative;
+        }
+
+        .product-card:hover{
+
+            transform:
+            translateY(-10px);
+
+            border-color:
+            rgba(212,175,55,0.25);
+
+            box-shadow:
+            0 20px 45px rgba(0,0,0,0.3);
+        }
+
+        .product-image{
+
+            position:relative;
+
+            overflow:hidden;
+
+            cursor:pointer;
+        }
+
+        .product-image img{
+
+            width:100%;
+            height:280px;
+
+            object-fit:cover;
+
+            transition:0.5s ease;
+        }
+
+        .product-card:hover img{
+
+            transform:scale(1.06);
+        }
+
+        .product-badge{
+
+            position:absolute;
+
+            top:18px;
+            left:18px;
+
+            padding:8px 14px;
+
+            border-radius:999px;
+
+            font-size:12px;
+            font-weight:700;
+
+            background:
+            linear-gradient(
+                135deg,
+                #d4af37,
+                #f7dc7a
+            );
+
+            color:#300008;
+
+            z-index:5;
+        }
+
+        .wishlist-btn{
+
+            position:absolute;
+
+            top:18px;
+            right:18px;
+
+            width:45px;
+            height:45px;
+
+            border:none;
+
+            border-radius:50%;
+
+            background:
+            rgba(0,0,0,0.45);
+
+            color:white;
+
+            cursor:pointer;
+
+            z-index:5;
+
+            transition:0.3s ease;
+        }
+
+        .wishlist-btn:hover{
+
+            background:#ff3d6e;
+
+            transform:scale(1.08);
+        }
+
+        .product-info{
+
+            padding:25px;
+        }
+
+        .product-category{
+
+            color:#ffe48a;
+
+            font-size:0.85rem;
+
+            margin-bottom:10px;
+        }
+
+        .product-name{
+
+            font-size:1.2rem;
+            font-weight:700;
+
+            margin-bottom:10px;
+
+            cursor:pointer;
+        }
+
+        .product-price{
+
+            font-size:1.4rem;
+            font-weight:800;
+
+            color:#ffe48a;
+
+            margin-bottom:18px;
+        }
+
+        .product-rating{
+
+            margin-bottom:18px;
+
+            color:#ffd700;
+
+            font-size:14px;
+        }
+
+        .product-actions{
+
+            display:flex;
+
+            gap:12px;
+        }
+
+        .cart-btn,
+        .buy-btn{
+
+            flex:1;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:14px;
+
+            cursor:pointer;
+
+            font-weight:700;
+
+            transition:0.35s ease;
+        }
+
+        .cart-btn{
+
+            background:
+            rgba(255,255,255,0.08);
+
+            color:white;
+        }
+
+        .cart-btn:hover{
+
+            background:
+            rgba(255,255,255,0.14);
+        }
+
+        .buy-btn{
+
+            background:
+            linear-gradient(
+                135deg,
+                #d4af37,
+                #f7dc7a
+            );
+
+            color:#300008;
+        }
+
+        .buy-btn:hover{
+
+            transform:translateY(-4px);
+
+            box-shadow:
+            0 12px 28px rgba(212,175,55,0.3);
+        }
+
+        .empty-products{
+
+            text-align:center;
+
+            padding:80px 20px;
+
+            color:
+            rgba(255,255,255,0.7);
+        }
+
+        @media(max-width:1000px){
+
+            .shop-layout{
+
+                grid-template-columns:1fr;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .shop-section{
+
+                padding:
+                110px 5% 60px;
+            }
+
+            .shop-title{
+
+                font-size:2.3rem;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- =========================================================
+         SHOP SECTION
+    ========================================================== -->
+
+    <section class="shop-section">
+
+        <div class="shop-header">
+
+            <h1 class="shop-title">
+
+                Nexstep India Collection
+
+            </h1>
+
+            <p class="shop-subtitle">
+
+                Premium Indian sneaker brand crafted for
+                comfort, street fashion, sports performance,
+                and modern lifestyle.
+            </p>
+
+        </div>
+
+        <!-- =========================================================
+             TOP FILTER BUTTONS
+        ========================================================== -->
+
+        <div class="top-tabs">
+
+            <button class="tab-btn active"
+                    data-type="All">
+
+                All Products
+
+            </button>
+
+            <button class="tab-btn"
+                    data-type="New Arrivals">
+
+                New Arrivals
+
+            </button>
+
+            <button class="tab-btn"
+                    data-type="Best Sellers">
+
+                Best Sellers
+
+            </button>
+
+            <button class="tab-btn"
+                    data-type="Men">
+
+                Men
+
+            </button>
+
+            <button class="tab-btn"
+                    data-type="Women">
+
+                Women
+
+            </button>
+
+        </div>
+
+        <div class="shop-layout">
+
+            <!-- =========================================================
+                 FILTERS
+            ========================================================== -->
+
+            <aside class="filter-sidebar">
+
+                <h2 class="filter-title">
+
+                    Filters
+
+                </h2>
+
+                <div class="filter-group">
+
+                    <h4>Categories</h4>
+
+                    <div class="filter-option">
+                        <label>
+                            <input type="checkbox"
+                                   value="Running"
+                                   class="category-filter">
+                            Running
+                        </label>
+                    </div>
+
+                    <div class="filter-option">
+                        <label>
+                            <input type="checkbox"
+                                   value="Training"
+                                   class="category-filter">
+                            Training
+                        </label>
+                    </div>
+
+                    <div class="filter-option">
+                        <label>
+                            <input type="checkbox"
+                                   value="Lifestyle"
+                                   class="category-filter">
+                            Lifestyle
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <h4>Maximum Price</h4>
+
+                    <input type="range"
+                           id="priceRange"
+                           min="2000"
+                           max="25000"
+                           step="500"
+                           value="25000">
+
+                    <div class="price-value">
+
+                        Up to ₹
+                        <span id="priceValue">
+
+                            25000
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!-- =========================================================
+                 PRODUCTS
+            ========================================================== -->
+
+            <div>
+
+                <div class="search-box">
+
+                    <i class="fas fa-search"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search sneakers..."
+                    >
+
+                </div>
+
+                <h2 class="section-title" id="section-heading">
+                    All Products
+                </h2>
+
+                <div id="product-grid"
+                     class="product-grid">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <div id="footer-placeholder"></div>
+
+    <!-- =========================================================
+         SCRIPTS
+    ========================================================== -->
+
+    <script src="localstorage.js"></script>
+    <script src="toast.js"></script>
+    <script src="cart.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+
+        /* =========================================================
+           LOAD NAVBAR
+        ========================================================== */
+
+        fetch('navbar.html')
+
+        .then(res => res.text())
+
+        .then(html => {
+
+            document.getElementById(
+                'navbar-placeholder'
+            ).innerHTML = html;
+        });
+
+        /* =========================================================
+           LOAD FOOTER
+        ========================================================== */
+
+        fetch('footer.html')
+
+        .then(res => res.text())
+
+        .then(html => {
+
+            document.getElementById(
+                'footer-placeholder'
+            ).innerHTML = html;
+        });
+
+        /* =========================================================
+           PRODUCTS
+        ========================================================== */
+
+        const allProducts = [
+
+            {
+                id:1,
+                name:"Nexstep Air Max Elite",
+                category:"Running",
+                type:"New Arrivals",
+                gender:"Men",
+                price:14999,
+                rating:"4.9",
+                image:"trending 1.jpeg"
+            },
+
+            {
+                  id:2,
+                name:"Nexstep Royal Runner",
+                category:"Lifestyle",
+                type:"New Arrivals",
+                gender:"Women",
+                price:11999,
+                rating:"4.8",
+                image:"product 2.jpeg"
+            },
+
+            {
+                id:3,
+                name:"Nexstep Urban Glide",
+                category:"Training",
+                type:"Best Sellers",
+                gender:"Men",
+                price:9499,
+                rating:"4.7",
+                image:"product 3.jpeg"
+            },
+
+            {
+                id:4,
+                name:"Nexstep Storm X",
+                category:"Lifestyle",
+                type:"Best Sellers",
+                gender:"Women",
+                price:13499,
+                rating:"4.8",
+                image:"product 4.jpeg"
+            },
+
+            {
+                id:5,
+                name:"Nexstep Titan Force",
+                category:"Running",
+                type:"Men",
+                gender:"Men",
+                price:15999,
+                rating:"5.0",
+                image:"product 5.jpeg"
+            },
+
+            {
+                  id:6,
+                name:"Nexstep Velocity Pro",
+                category:"Training",
+                type:"Men",
+                gender:"Women",
+                price:12999,
+                rating:"4.9",
+                image:"trending 2.jpeg"
+                 
+            },
+
+            {
+                id:7,
+                name:"Nexstep Diva Glow",
+                category:"Running",
+                type:"New Arrivals",
+                gender:"Women",
+                price:10999,
+                rating:"4.8",
+                image:"product 7.jpeg"
+            },
+
+            {
+                id:8,
+                name:"Nexstep Trail Master",
+                category:"Lifestyle",
+                type:"Women",
+                gender:"Women",
+                price:9999,
+                rating:"4.9",
+                image:"trending 4.jpeg"
+            },
+
+            {
+                id:9,
+                name:"Nexstep Alpha Runner",
+                category:"Training",
+                type:"Men",
+                gender:"Men",
+                price:12499,
+                rating:"4.7",
+                image:"product 9.jpeg"
+            },
+
+            {
+                id:10,
+                name:"Nexstep Pearl Flex",
+                category:"Lifestyle",
+                type:"Women",
+                gender:"Women",
+                price:11499,
+                rating:"4.8",
+                image:"trending 3.jpeg"
+            }
+
+        ];
+
+        let currentTab = "All";
+
+        /* =========================================================
+           PRODUCT CARD
+        ========================================================== */
+
+        function createProductCard(product){
+
+            return `
+
+                <div class="product-card">
+
+                    <div class="product-image"
+
+                         onclick="openProduct(${product.id})">
+
+                        <span class="product-badge">
+
+                            ${product.type}
+
+                        </span>
+
+                        <button
+                            class="wishlist-btn"
+
+                            onclick="
+                            event.stopPropagation();
+                            addToWishlist(${product.id})
+                            "
+                        >
+
+                            <i class="fas fa-heart"></i>
+
+                        </button>
+
+                        <img
+                            src="${product.image}"
+
+                            alt="${product.name}"
+
+                            onerror="
+                            this.src=
+                            'assets/images/logo/nexstep-logo.png'
+                            "
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+
+                            ${product.category}
+                            •
+                            ${product.gender}
+
+                        </div>
+
+                        <h3 class="product-name"
+
+                            onclick="openProduct(${product.id})">
+
+                            ${product.name}
+
+                        </h3>
+
+                        <div class="product-rating">
+
+                            ⭐ ${product.rating}
+                            Rating
+
+                        </div>
+
+                        <div class="product-price">
+
+                            ₹${product.price.toLocaleString('en-IN')}
+
+                        </div>
+
+                        <div class="product-actions">
+
+                            <button
+                                class="cart-btn"
+
+                                onclick='addToCart(
+                                ${JSON.stringify(product)
+                                .replace(/"/g,"&quot;")}
+                                )'
+                            >
+
+                                <i class="fas fa-cart-shopping"></i>
+                                Add
+
+                            </button>
+
+                            <button
+                                class="buy-btn"
+
+                                onclick='buyNow(
+                                ${JSON.stringify(product)
+                                .replace(/"/g,"&quot;")}
+                                )'
+                            >
+
+                                Buy Now
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+        }
+/* =========================================================
+   FILTER PRODUCTS
+========================================================== */
+
+function filterProducts(){
+
+    const selectedCategories =
+    [...document.querySelectorAll(
+        '.category-filter:checked'
+    )]
+    .map(item => item.value);
+
+    const maxPrice =
+    parseInt(
+        document.getElementById(
+            'priceRange'
+        ).value
+    );
+
+    const search =
+    document.getElementById(
+        'searchInput'
+    ).value.toLowerCase();
+
+    let filtered =
+    allProducts.filter(product => {
+
+        const matchCategory =
+
+        selectedCategories.length === 0 ||
+
+        selectedCategories.includes(
+            product.category
+        );
+
+        const matchPrice =
+        product.price <= maxPrice;
+
+        const matchSearch =
+        product.name
+        .toLowerCase()
+        .includes(search);
+
+        let matchTab = true;
+
+        /* =====================================================
+           TAB FILTERS
+        ====================================================== */
+
+        if(currentTab === "New Arrivals"){
+
+            matchTab =
+            product.type === "New Arrivals";
+        }
+
+        else if(currentTab === "Best Sellers"){
+
+            matchTab =
+            product.type === "Best Sellers";
+        }
+
+        else if(currentTab === "Men"){
+
+            matchTab =
+            product.gender === "Men";
+        }
+
+        else if(currentTab === "Women"){
+
+            matchTab =
+            product.gender === "Women";
+        }
+
+        return (
+            matchCategory &&
+            matchPrice &&
+            matchSearch &&
+            matchTab
+        );
+    });
+
+    /* =====================================================
+       SECTION TITLES
+    ====================================================== */
+
+    if(currentTab === "All"){
+
+        document.getElementById(
+            'section-heading'
+        ).textContent =
+        "All Products";
+    }
+
+    else if(currentTab === "New Arrivals"){
+
+        document.getElementById(
+            'section-heading'
+        ).textContent =
+        "New Arrivals";
+    }
+
+    else if(currentTab === "Best Sellers"){
+
+        document.getElementById(
+            'section-heading'
+        ).textContent =
+        "Best Sellers";
+    }
+
+    else if(currentTab === "Men"){
+
+        document.getElementById(
+            'section-heading'
+        ).textContent =
+        "Men Collection";
+    }
+
+    else if(currentTab === "Women"){
+
+        document.getElementById(
+            'section-heading'
+        ).textContent =
+        "Women Collection";
+    }
+
+    /* =====================================================
+       RENDER FILTERED PRODUCTS
+    ====================================================== */
+
+    renderProducts(filtered);
+}
+
+        /* =========================================================
+           RENDER PRODUCTS
+        ========================================================== */
+
+        function renderProducts(products){
+
+            const container =
+            document.getElementById(
+                'product-grid'
+            );
+
+            container.innerHTML = '';
+
+            if(products.length === 0){
+
+                container.innerHTML = `
+
+                    <div class="empty-products">
+
+                        No products found.
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+            products.forEach(product => {
+
+                container.innerHTML +=
+                createProductCard(product);
+            });
+        }
+
+        /* =========================================================
+           INITIAL LOAD
+        ========================================================== */
+
+        filterProducts();
+
+        /* =========================================================
+           OPEN PRODUCT DETAILS
+        ========================================================== */
+
+        function openProduct(id){
+
+            window.location.href =
+            `product-details.html?id=${id}`;
+        }
+
+        /* =========================================================
+           ADD TO CART
+        ========================================================== */
+function addToCart(product){
+
+    let cart =
+    JSON.parse(
+        localStorage.getItem('cart')
+    ) || [];
+
+    const existing =
+    cart.find(item => item.id === product.id);
+
+    /* =====================================================
+       IF PRODUCT ALREADY EXISTS
+    ====================================================== */
+
+    if(existing){
+
+        existing.quantity += 1;
+
+        showLivePopup(
+            `🛒 ${product.name} quantity updated`
+        );
+
+    }else{
+
+        cart.push({
+            ...product,
+            quantity:1
+        });
+
+        showLivePopup(
+            `✅ ${product.name} added to cart`
+        );
+    }
+
+    /* =====================================================
+       SAVE UPDATED CART
+    ====================================================== */
+
+    localStorage.setItem(
+        'cart',
+        JSON.stringify(cart)
+    );
+
+    /* =====================================================
+       UPDATE CART BADGE LIVE
+    ====================================================== */
+
+    updateCartBadge();
+}
+
+
+    /* =========================================================
+           BUY NOW
+        ========================================================== */
+
+        function buyNow(product){
+
+            addToCart(product);
+
+            window.location.href =
+            'signup.html';
+        }
+
+        /* =========================================================
+           WISHLIST
+        ========================================================== */
+     function addToWishlist(id){
+
+    const product =
+    allProducts.find(item => item.id === id);
+
+    let wishlist =
+    JSON.parse(
+        localStorage.getItem(
+            'wishlist'
+        )
+    ) || [];
+
+    const exists =
+    wishlist.find(item => item.id === id);
+
+    if(!exists){
+
+        wishlist.push(product);
+
+        localStorage.setItem(
+
+            'wishlist',
+
+            JSON.stringify(wishlist)
+        );
+
+        updateWishlistBadge();
+
+        showLivePopup(
+            `${product.name} added to wishlist ❤️`
+        );
+
+    }else{
+
+        showLivePopup(
+            `${product.name} already in wishlist`
+        );
+    }
+}
+
+
+        /* =========================================================
+           PRICE RANGE
+        ========================================================== */
+
+        document.getElementById(
+            'priceRange'
+        ).addEventListener(
+            'input',
+            function(){
+
+                document.getElementById(
+                    'priceValue'
+                ).textContent =
+                this.value;
+
+                filterProducts();
+            }
+        );
+
+        /* =========================================================
+           SEARCH
+        ========================================================== */
+
+        document.getElementById(
+            'searchInput'
+        ).addEventListener(
+            'input',
+            filterProducts
+        );
+
+        /* =========================================================
+           CATEGORY FILTER
+        ========================================================== */
+
+        document.querySelectorAll(
+            '.category-filter'
+        ).forEach(filter => {
+
+            filter.addEventListener(
+                'change',
+                filterProducts
+            );
+        });
+
+       /* =========================================================
+   TOP TABS
+========================================================== */
+
+document.querySelectorAll(
+    '.tab-btn'
+).forEach(btn => {
+
+    btn.addEventListener(
+        'click',
+        () => {
+
+            /* REMOVE ACTIVE CLASS */
+
+            document.querySelectorAll(
+                '.tab-btn'
+            ).forEach(b =>
+                b.classList.remove(
+                    'active'
+                )
+            );
+
+            /* ADD ACTIVE CLASS */
+
+            btn.classList.add(
+                'active'
+            );
+
+            /* SET CURRENT TAB */
+
+            currentTab =
+            btn.dataset.type;
+
+            /* FILTER PRODUCTS */
+
+            filterProducts();
+
+            /* =====================================================
+               STAY IN CURRENT SECTION
+            ====================================================== */
+
+            setTimeout(() => {
+
+                document.getElementById(
+                    'section-heading'
+                ).scrollIntoView({
+
+                    behavior:"smooth",
+
+                    block:"start"
+                });
+
+            },100);
+
+        }
+    );
+});
+
+        /* =========================================================
+           LIVE CART BADGE
+        ========================================================== */
+
+        function updateCartBadge(){
+
+            const cart =
+            JSON.parse(
+                localStorage.getItem('cart')
+            ) || [];
+
+            const total =
+            cart.reduce(
+                (acc,item)=>
+                acc + item.quantity,
+                0
+            );
+
+            const badge =
+            document.querySelector(
+                '.cart-badge'
+            );
+
+            if(badge){
+
+                badge.textContent = total;
+            }
+        }
+
+      /* =========================================================
+   LIVE WISHLIST BADGE
+========================================================== */
+
+function updateWishlistBadge(){
+
+    const wishlist =
+    JSON.parse(
+        localStorage.getItem(
+            'wishlist'
+        )
+    ) || [];
+
+    const badge =
+    document.querySelector(
+        '.wishlist-badge'
+    );
+
+    if(badge){
+
+        badge.textContent =
+        wishlist.length;
+    }
+}
+
+/* =========================================================
+   PREMIUM LIVE POPUP
+========================================================== */
+
+function showLivePopup(message){
+
+    const popup =
+    document.createElement('div');
+
+    popup.innerHTML = message;
+
+    popup.style.position = 'fixed';
+    popup.style.top = '30px';
+    popup.style.right = '30px';
+    popup.style.padding = '16px 22px';
+    popup.style.background =
+    'linear-gradient(135deg,#d4af37,#f7dc7a)';
+    popup.style.color = '#1a0000';
+    popup.style.fontWeight = '700';
+    popup.style.borderRadius = '16px';
+    popup.style.zIndex = '99999';
+    popup.style.boxShadow =
+    '0 12px 35px rgba(0,0,0,0.35)';
+    popup.style.fontFamily = 'Poppins,sans-serif';
+    popup.style.animation =
+    'popupSlide 0.4s ease';
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+
+        popup.style.opacity = '0';
+        popup.style.transform =
+        'translateX(100px)';
+
+    },2500);
+
+    setTimeout(() => {
+
+        popup.remove();
+
+    },3000);
+}
+
+/* =========================================================
+   POPUP ANIMATION
+========================================================== */
+
+const style =
+document.createElement('style');
+
+style.innerHTML = `
+
+@keyframes popupSlide{
+
+    from{
+
+        transform:translateX(120px);
+        opacity:0;
+    }
+
+    to{
+
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+
+`;
+
+document.head.appendChild(style);
+
+/* =========================================================
+   INITIALIZE BADGES
+========================================================== */
+
+updateCartBadge();
+updateWishlistBadge();
+    
+/* =========================================================
+   PREMIUM LIVE POPUP NOTIFICATION
+========================================================== */
+
+function showLivePopup(message){
+
+    /* REMOVE OLD POPUP */
+
+    const oldPopup =
+    document.querySelector('.live-popup');
+
+    if(oldPopup){
+
+        oldPopup.remove();
+    }
+
+    /* CREATE POPUP */
+
+    const popup =
+    document.createElement('div');
+
+    popup.className = 'live-popup';
+
+    popup.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        ${message}
+    `;
+
+    /* POPUP STYLE */
+
+    popup.style.position = 'fixed';
+    popup.style.top = '25px';
+    popup.style.right = '25px';
+    popup.style.background =
+    'linear-gradient(135deg,#d4af37,#f7dc7a)';
+    popup.style.color = '#1a0000';
+    popup.style.padding = '18px 24px';
+    popup.style.borderRadius = '18px';
+    popup.style.fontWeight = '700';
+    popup.style.fontSize = '15px';
+    popup.style.fontFamily = 'Poppins,sans-serif';
+    popup.style.boxShadow =
+    '0 15px 40px rgba(0,0,0,0.35)';
+    popup.style.zIndex = '999999';
+    popup.style.display = 'flex';
+    popup.style.alignItems = 'center';
+    popup.style.gap = '10px';
+    popup.style.transform = 'translateX(120%)';
+    popup.style.transition =
+    'all 0.5s ease';
+
+    document.body.appendChild(popup);
+
+    /* SHOW ANIMATION */
+
+    setTimeout(() => {
+
+        popup.style.transform =
+        'translateX(0)';
+
+    },100);
+
+    /* HIDE ANIMATION */
+
+    setTimeout(() => {
+
+        popup.style.transform =
+        'translateX(120%)';
+        popup.style.opacity = '0';
+
+    },2500);
+
+    /* REMOVE POPUP */
+
+    setTimeout(() => {
+
+        popup.remove();
+
+    },3200);
+}
+    </script>
+
+<script src="wishlist.js"></script>
+
+</body>
+</html>

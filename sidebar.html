@@ -1,0 +1,20 @@
+<div id="sidebar-menu" style="position: fixed; top: 0; left: -300px; width: 300px; height: 100%; background: var(--bg-color); z-index: 2500; transition: left 0.3s ease; box-shadow: var(--shadow-lg); padding: 40px 20px;">
+    <button onclick="toggleSidebar()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+    <div class="sidebar-logo" style="margin-bottom: 40px;">
+        <img src="assets/images/logo/nexstep-logo.png" alt="Nexstep" style="height: 30px;">
+    </div>
+    <ul style="line-height: 3;">
+        <li><a href="index.html" style="font-size: 1.2rem; font-weight: 600;">Home</a></li>
+        <li><a href="products.html" style="font-size: 1.2rem; font-weight: 600;">Shop</a></li>
+        <li><a href="wishlist.html" style="font-size: 1.2rem; font-weight: 600;">Wishlist</a></li>
+        <li><a href="profile.html" style="font-size: 1.2rem; font-weight: 600;">My Account</a></li>
+        <li><a href="contact.html" style="font-size: 1.2rem; font-weight: 600;">Support</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar-menu');
+        sidebar.style.left = sidebar.style.left === '0px' ? '-300px' : '0px';
+    }
+</script>

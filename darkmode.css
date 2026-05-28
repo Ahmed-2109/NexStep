@@ -1,0 +1,26 @@
+[data-theme="dark"] body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .navbar {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .category-card,
+[data-theme="dark"] #cart-summary,
+[data-theme="dark"] .bg-alt {
+    background-color: var(--bg-alt);
+}
+
+[data-theme="dark"] input, 
+[data-theme="dark"] textarea {
+    background-color: #222;
+    color: white;
+    border-color: #444;
+}
+
+[data-theme="dark"] .footer {
+    background-color: #000;
+}

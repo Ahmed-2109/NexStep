@@ -1,0 +1,17 @@
+[
+    {
+        "id": "running",
+        "name": "Running",
+        "image": "assets/images/banners/running.jpg"
+    },
+    {
+        "id": "training",
+        "name": "Training",
+        "image": "assets/images/banners/training.jpg"
+    },
+    {
+        "id": "lifestyle",
+        "name": "Lifestyle",
+        "image": "assets/images/banners/lifestyle.jpg"
+    }
+]

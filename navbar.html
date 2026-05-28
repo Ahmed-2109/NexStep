@@ -1,0 +1,833 @@
+<nav class="navbar">
+
+    <!-- =========================================================
+         LOGO
+    ========================================================== -->
+
+    <div class="nav-logo">
+
+        <a href="index.html">
+
+            <img
+                src="nexstep logo.jpeg"
+                alt="Nexstep Logo"
+            >
+
+            <span class="logo-text">
+
+                NEXSTEP
+
+            </span>
+
+        </a>
+
+    </div>
+
+    <!-- =========================================================
+         NAVIGATION LINKS
+    ========================================================== -->
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="products.html">
+                Shop
+            </a>
+        </li>
+
+
+        <li>
+            <a href="contact.html">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+    <!-- =========================================================
+         SEARCH BAR
+    ========================================================== -->
+
+    <div class="search-container" id="search-container">
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search premium sneakers..."
+        >
+
+        <button id="search-btn">
+
+            <i class="fas fa-search"></i>
+
+        </button>
+
+    </div>
+
+    <!-- =========================================================
+         NAV ACTIONS
+    ========================================================== -->
+
+    <div class="nav-actions">
+
+        <!-- SEARCH ICON -->
+
+        <div
+            class="nav-icon search-trigger"
+            id="search-trigger"
+        >
+
+            <i class="fas fa-search"></i>
+
+        </div>
+
+        <!-- WISHLIST -->
+
+        <a
+            href="wishlist.html"
+            class="nav-icon"
+            title="Wishlist"
+        >
+
+            <i class="fas fa-heart"></i>
+
+            <span class="badge wishlist-badge">
+
+                0
+
+            </span>
+
+        </a>
+
+        <!-- CART -->
+
+        <a
+            href="cart.html"
+            class="nav-icon"
+            title="Cart"
+        >
+
+            <i class="fas fa-shopping-cart"></i>
+
+            <span class="badge cart-badge">
+
+                0
+
+            </span>
+
+        </a>
+
+        <!-- PROFILE -->
+
+        <a
+            href="profile.html"
+            class="nav-icon"
+            title="My Profile"
+        >
+
+            <i class="fas fa-user-circle"></i>
+
+        </a>
+
+        <!-- MOBILE MENU -->
+
+        <div
+            class="nav-icon menu-toggle"
+            id="menu-toggle"
+        >
+
+            <i class="fas fa-bars"></i>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- =========================================================
+     PREMIUM NAVBAR STYLE
+========================================================== -->
+
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        transition:0.4s ease;
+    }
+
+    /* =========================================================
+       LIGHT MODE
+    ========================================================== */
+
+    body.light-mode{
+
+        background:#f5f5f5 !important;
+        color:#111 !important;
+    }
+
+    body.light-mode .navbar{
+
+        background:
+        rgba(255,255,255,0.92);
+
+        border-bottom:
+        1px solid rgba(0,0,0,0.08);
+    }
+
+    body.light-mode .nav-links a{
+
+        color:#111;
+    }
+
+    body.light-mode .nav-icon{
+
+        background:
+        rgba(0,0,0,0.05);
+
+        color:#111;
+
+        border:
+        1px solid rgba(0,0,0,0.08);
+    }
+
+    body.light-mode .search-container{
+
+        background:white;
+
+        border:
+        1px solid rgba(0,0,0,0.08);
+    }
+
+    body.light-mode .search-container input{
+
+        color:#111;
+    }
+
+    body.light-mode .search-container input::placeholder{
+
+        color:#777;
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================== */
+
+    .navbar{
+
+        position:sticky;
+        top:0;
+        z-index:9999;
+
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+        padding:18px 6%;
+
+        background:
+        rgba(20,0,0,0.75);
+
+        backdrop-filter:blur(18px);
+
+        border-bottom:
+        1px solid rgba(255,255,255,0.08);
+
+        box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* =========================================================
+       LOGO
+    ========================================================== */
+
+    .nav-logo a{
+
+        display:flex;
+        align-items:center;
+        gap:14px;
+
+        text-decoration:none;
+    }
+
+    .nav-logo img{
+
+        width:55px;
+        height:55px;
+
+        object-fit:contain;
+
+        border-radius:14px;
+
+        background:white;
+
+        padding:4px;
+
+        box-shadow:
+        0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .logo-text{
+
+        color:#f5d76e;
+
+        font-size:1.4rem;
+        font-weight:800;
+        letter-spacing:2px;
+    }
+
+    /* =========================================================
+       NAV LINKS
+    ========================================================== */
+
+    .nav-links{
+
+        display:flex;
+        align-items:center;
+        gap:35px;
+
+        list-style:none;
+    }
+
+    .nav-links a{
+
+        position:relative;
+
+        text-decoration:none;
+
+        color:white;
+
+        font-weight:600;
+
+        transition:0.3s ease;
+    }
+
+    .nav-links a:hover{
+
+        color:#f5d76e;
+    }
+
+    .nav-links a::after{
+
+        content:"";
+
+        position:absolute;
+
+        left:0;
+        bottom:-8px;
+
+        width:0%;
+        height:2px;
+
+        background:#f5d76e;
+
+        transition:0.3s ease;
+    }
+
+    .nav-links a:hover::after{
+
+        width:100%;
+    }
+
+    /* =========================================================
+       SEARCH BAR
+    ========================================================== */
+
+    .search-container{
+
+        position:absolute;
+
+        top:100%;
+        right:6%;
+
+        width:320px;
+
+        display:flex;
+        align-items:center;
+
+        background:
+        rgba(255,255,255,0.08);
+
+        border:
+        1px solid rgba(255,255,255,0.08);
+
+        border-radius:18px;
+
+        overflow:hidden;
+
+        backdrop-filter:blur(14px);
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:
+        translateY(-10px);
+
+        transition:0.4s ease;
+    }
+
+    .search-container.active{
+
+        opacity:1;
+        visibility:visible;
+
+        transform:
+        translateY(10px);
+    }
+
+    .search-container input{
+
+        flex:1;
+
+        padding:16px 18px;
+
+        border:none;
+        outline:none;
+
+        background:transparent;
+
+        color:white;
+
+        font-size:15px;
+    }
+
+    .search-container input::placeholder{
+
+        color:rgba(255,255,255,0.6);
+    }
+
+    #search-btn{
+
+        width:60px;
+        height:55px;
+
+        border:none;
+
+        background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #f5d76e
+        );
+
+        color:#2a0000;
+
+        font-size:16px;
+
+        cursor:pointer;
+    }
+
+    /* =========================================================
+       ACTIONS
+    ========================================================== */
+
+    .nav-actions{
+
+        display:flex;
+        align-items:center;
+        gap:18px;
+    }
+
+    .nav-icon{
+
+        position:relative;
+
+        width:48px;
+        height:48px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        border-radius:16px;
+
+        background:
+        rgba(255,255,255,0.06);
+
+        border:
+        1px solid rgba(255,255,255,0.06);
+
+        color:white;
+
+        cursor:pointer;
+
+        transition:0.35s ease;
+
+        text-decoration:none;
+    }
+
+    .nav-icon:hover{
+
+        transform:
+        translateY(-5px);
+
+        background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #f5d76e
+        );
+
+        color:#2a0000;
+
+        box-shadow:
+        0 10px 25px rgba(212,175,55,0.25);
+    }
+
+    /* =========================================================
+       BADGES
+    ========================================================== */
+
+    .badge{
+
+        position:absolute;
+
+        top:-5px;
+        right:-5px;
+
+        min-width:20px;
+        height:20px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        border-radius:50%;
+
+        background:#ffcc00;
+
+        color:#2a0000;
+
+        font-size:11px;
+        font-weight:700;
+
+        padding:2px 5px;
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================== */
+
+    .menu-toggle{
+
+        display:none;
+    }
+
+    @media(max-width:992px){
+
+        .nav-links{
+
+            position:absolute;
+
+            top:100%;
+            left:0;
+
+            width:100%;
+
+            background:
+            rgba(20,0,0,0.96);
+
+            flex-direction:column;
+
+            padding:30px;
+
+            gap:25px;
+
+            display:none;
+        }
+
+        .nav-links.active{
+
+            display:flex;
+        }
+
+        .menu-toggle{
+
+            display:flex;
+        }
+
+        .search-container{
+
+            right:20px;
+            width:280px;
+        }
+    }
+
+    @media(max-width:600px){
+
+        .navbar{
+
+            padding:16px 20px;
+        }
+
+        .logo-text{
+
+            display:none;
+        }
+
+        .search-container{
+
+            width:90%;
+            right:5%;
+        }
+    }
+
+</style>
+
+
+<script>
+
+    /* =========================================================
+       SEARCH TOGGLE
+    ========================================================== */
+
+    const searchTrigger =
+    document.getElementById(
+        'search-trigger'
+    );
+
+    const searchContainer =
+    document.getElementById(
+        'search-container'
+    );
+
+    searchTrigger.addEventListener(
+        'click',
+        () => {
+
+            /* TOGGLE SEARCH BAR */
+
+            searchContainer
+            .classList.toggle('active');
+
+            /* AUTO FOCUS INPUT */
+
+            document
+            .getElementById('search-input')
+            .focus();
+
+        }
+    );
+
+
+
+    /* =========================================================
+       SEARCH PRODUCTS
+    ========================================================== */
+
+    document.getElementById(
+        'search-btn'
+    ).addEventListener(
+        'click',
+        () => {
+
+            const query =
+            document.getElementById(
+                'search-input'
+            ).value.toLowerCase();
+
+            if(query.trim() !== ""){
+
+                window.location.href =
+                `products.html?search=${query}`;
+
+            }
+
+        }
+    );
+
+    /* =========================================================
+       ENTER KEY SEARCH
+    ========================================================== */
+
+    document.getElementById(
+        'search-input'
+    ).addEventListener(
+        'keypress',
+        (e) => {
+
+            if(e.key === 'Enter'){
+
+                document
+                .getElementById('search-btn')
+                .click();
+            }
+
+        }
+    );
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================== */
+
+    const menuToggle =
+    document.getElementById(
+        'menu-toggle'
+    );
+
+    const navLinks =
+    document.querySelector(
+        '.nav-links'
+    );
+
+    menuToggle.addEventListener(
+        'click',
+        () => {
+
+            navLinks.classList.toggle(
+                'active'
+            );
+
+        }
+    );
+
+  
+    /* =========================================================
+       LIVE CART UPDATE
+    ========================================================== */
+
+    function updateCartBadge(){
+
+        const cart =
+        JSON.parse(
+            localStorage.getItem('cart')
+        ) || [];
+
+        let total = 0;
+
+        cart.forEach(item => {
+
+            total += item.quantity || 1;
+
+        });
+
+        const badge =
+        document.querySelector(
+            '.cart-badge'
+        );
+
+        if(badge){
+
+            badge.textContent = total;
+        }
+    }
+
+    updateCartBadge();
+
+    /* =========================================================
+       LIVE WISHLIST UPDATE
+    ========================================================== */
+
+    function updateWishlistBadge(){
+
+        const wishlist =
+        JSON.parse(
+            localStorage.getItem('wishlist')
+        ) || [];
+
+        const badge =
+        document.querySelector(
+            '.wishlist-badge'
+        );
+
+        if(badge){
+
+            badge.textContent =
+            wishlist.length;
+        }
+    }
+
+    updateWishlistBadge();
+
+    /* =========================================================
+       GLOBAL ADD TO CART FUNCTION
+    ========================================================== */
+
+    function addToCart(product){
+
+        let cart =
+        JSON.parse(
+            localStorage.getItem('cart')
+        ) || [];
+
+        const existing =
+        cart.find(item =>
+            item.id === product.id
+        );
+
+        if(existing){
+
+            existing.quantity += 1;
+
+        }else{
+
+            cart.push({
+                ...product,
+                quantity:1
+            });
+        }
+
+        localStorage.setItem(
+            'cart',
+            JSON.stringify(cart)
+        );
+
+        updateCartBadge();
+
+        alert(
+            product.name +
+            ' added to cart!'
+        );
+    }
+
+    /* =========================================================
+       GLOBAL WISHLIST FUNCTION
+    ========================================================== */
+
+    function addToWishlist(product){
+
+        let wishlist =
+        JSON.parse(
+            localStorage.getItem('wishlist')
+        ) || [];
+
+        const exists =
+        wishlist.find(item =>
+            item.id === product.id
+        );
+
+        if(!exists){
+
+            wishlist.push(product);
+
+            localStorage.setItem(
+                'wishlist',
+                JSON.stringify(wishlist)
+            );
+
+            updateWishlistBadge();
+
+            alert(
+                product.name +
+                ' added to wishlist!'
+            );
+
+        }else{
+
+            alert(
+                'Already in wishlist!'
+            );
+        }
+    }
+
+</script>

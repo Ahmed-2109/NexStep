@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================================
+         META INFO
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Nexstep</title>
+
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         FONT AWESOME
+    ========================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- =========================================================
+         CSS FILES
+    ========================================================== -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <!-- =========================================================
+         PREMIUM CHECKOUT STYLE
+    ========================================================== -->
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:
+            linear-gradient(
+                135deg,
+                #120003,
+                #2a0006,
+                #4d000c
+            );
+
+            color:white;
+
+            overflow-x:hidden;
+        }
+
+        .checkout-page{
+
+            padding:
+            140px 8% 80px;
+        }
+
+        .checkout-header{
+
+            text-align:center;
+
+            margin-bottom:60px;
+        }
+
+        .checkout-header h1{
+
+            font-size:4rem;
+
+            font-weight:900;
+
+            margin-bottom:15px;
+
+            background:
+            linear-gradient(
+                135deg,
+                #ffd700,
+                #f5d76e
+            );
+
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .checkout-header p{
+
+            color:
+            rgba(255,255,255,0.7);
+
+            font-size:1.1rem;
+        }
+
+        .checkout-layout{
+
+            display:grid;
+
+            grid-template-columns:
+            2fr 1fr;
+
+            gap:40px;
+        }
+
+        .checkout-form{
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid rgba(255,215,0,0.15);
+
+            backdrop-filter:blur(12px);
+
+            border-radius:28px;
+
+            padding:40px;
+        }
+
+        .section-title{
+
+            font-size:1.8rem;
+
+            margin-bottom:30px;
+
+            color:#ffd700;
+        }
+
+        .form-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(2,1fr);
+
+            gap:20px;
+        }
+
+        .input-box{
+
+            margin-bottom:22px;
+        }
+
+        .input-box label{
+
+            display:block;
+
+            margin-bottom:10px;
+
+            font-weight:600;
+        }
+
+        .input-box input,
+.input-box select{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:15px;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+}
+
+/* =========================================================
+   SELECT OPTION VISIBILITY FIX
+========================================================== */
+
+.input-box select option{
+
+    background:#1f1f1f;
+
+    color:white;
+}
+
+        .input-box input::placeholder{
+
+            color:
+            rgba(255,255,255,0.45);
+        }
+
+        .payment-method{
+
+            margin-top:40px;
+        }
+
+        .payment-card{
+
+            background:
+            rgba(255,255,255,0.06);
+
+            border:
+            1px solid rgba(255,215,0,0.18);
+
+            border-radius:20px;
+
+            padding:25px;
+
+            margin-top:20px;
+
+            transition:0.4s ease;
+        }
+
+        .payment-card:hover{
+
+            border-color:
+            rgba(255,215,0,0.4);
+
+            transform:
+            translateY(-4px);
+        }
+
+        .payment-top{
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            margin-bottom:20px;
+        }
+
+        .payment-icons i{
+
+            font-size:2rem;
+
+            margin-left:10px;
+
+            color:#ffd700;
+        }
+
+        .order-summary{
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid rgba(255,215,0,0.15);
+
+            backdrop-filter:blur(12px);
+
+            border-radius:28px;
+
+            padding:35px;
+
+            height:fit-content;
+
+            position:sticky;
+
+            top:120px;
+        }
+
+        .summary-title{
+
+            font-size:2rem;
+
+            margin-bottom:30px;
+
+            color:#ffd700;
+        }
+
+        .checkout-item{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:15px;
+
+            margin-bottom:20px;
+        }
+
+        .checkout-item img{
+
+            width:70px;
+            height:70px;
+
+            border-radius:16px;
+
+            object-fit:cover;
+
+            background:white;
+        }
+
+        .checkout-item h4{
+
+            font-size:15px;
+
+            margin-bottom:5px;
+        }
+
+        .checkout-item p{
+
+            color:#ffd700;
+
+            font-size:14px;
+        }
+
+        .summary-row{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            margin:18px 0;
+
+            color:
+            rgba(255,255,255,0.75);
+        }
+
+        .summary-total{
+
+            border-top:
+            1px solid rgba(255,255,255,0.1);
+
+            padding-top:25px;
+
+            margin-top:25px;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            font-size:1.4rem;
+
+            font-weight:700;
+        }
+
+        .secure-info{
+
+            margin-top:25px;
+
+            padding:20px;
+
+            border-radius:18px;
+
+            background:
+            rgba(255,215,0,0.08);
+
+            text-align:center;
+
+            color:
+            rgba(255,255,255,0.7);
+
+            font-size:14px;
+        }
+
+        .place-order-btn{
+
+            width:100%;
+
+            margin-top:30px;
+
+            padding:18px;
+
+            border:none;
+
+            border-radius:18px;
+
+            cursor:pointer;
+
+            font-size:16px;
+
+            font-weight:700;
+
+            color:#2a0006;
+
+            background:
+            linear-gradient(
+                135deg,
+                #ffd700,
+                #f5d76e
+            );
+
+            transition:0.4s ease;
+        }
+
+        .place-order-btn:hover{
+
+            transform:
+            translateY(-5px);
+
+            box-shadow:
+            0 18px 35px
+            rgba(255,215,0,0.3);
+        }
+
+        .success-popup{
+
+            position:fixed;
+
+            top:50%;
+            left:50%;
+
+            transform:
+            translate(-50%,-50%)
+            scale(0);
+
+            background:#1f1f1f;
+
+            border:
+            1px solid rgba(255,215,0,0.2);
+
+            border-radius:28px;
+
+            padding:50px;
+
+            text-align:center;
+
+            z-index:9999;
+
+            transition:0.4s ease;
+        }
+
+        .success-popup.active{
+
+            transform:
+            translate(-50%,-50%)
+            scale(1);
+        }
+
+        .success-popup i{
+
+            font-size:5rem;
+
+            color:#ffd700;
+
+            margin-bottom:20px;
+        }
+
+        .success-popup h2{
+
+            margin-bottom:15px;
+        }
+
+        @media(max-width:1000px){
+
+            .checkout-layout{
+
+                grid-template-columns:1fr;
+            }
+
+            .order-summary{
+
+                position:relative;
+
+                top:0;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .checkout-header h1{
+
+                font-size:2.7rem;
+            }
+
+            .form-grid{
+
+                grid-template-columns:1fr;
+            }
+
+            .checkout-form,
+            .order-summary{
+
+                padding:25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- =========================================================
+         CHECKOUT PAGE
+    ========================================================== -->
+
+    <section class="checkout-page">
+
+        <div class="checkout-header">
+
+            <h1>Secure Checkout</h1>
+
+            <p>
+
+                Complete your premium Nexstep order
+                with secure payment and fast delivery.
+
+            </p>
+
+        </div>
+
+        <div class="checkout-layout">
+
+            <!-- =========================================================
+                 CHECKOUT FORM
+            ========================================================== -->
+
+            <div class="checkout-form">
+
+                <!-- SHIPPING -->
+
+                <h2 class="section-title">
+
+                    Shipping Information
+
+                </h2>
+
+                <form id="checkout-form">
+
+                    <div class="form-grid">
+
+                        <div class="input-box">
+
+                            <label>Full Name</label>
+
+                            <input
+                                type="text"
+                                placeholder="John Doe"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-box">
+
+                            <label>Email Address</label>
+
+                            <input
+                                type="email"
+                                placeholder="john@example.com"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Phone Number</label>
+
+                        <input
+                            type="tel"
+                            placeholder="+91 9876543210"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Shipping Address</label>
+
+                        <input
+                            type="text"
+                            placeholder="123 Street Name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-box">
+
+                            <label>City</label>
+
+                            <input
+                                type="text"
+                                placeholder="Mumbai"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-box">
+
+                            <label>State</label>
+
+                            <input
+                                type="text"
+                                placeholder="Maharashtra"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-box">
+
+                            <label>Zip Code</label>
+
+                            <input
+                                type="text"
+                                placeholder="400001"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-box">
+
+                            <label>Country</label>
+
+                            <select required>
+
+                                <option value="">
+
+                                    Select Country
+
+                                </option>
+
+                                <option>
+
+                                    India
+
+                                </option>
+
+                                <option>
+
+                                    United States
+
+                                </option>
+
+                                <option>
+
+                                    United Kingdom
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PAYMENT -->
+
+                    <div class="payment-method">
+
+                        <h2 class="section-title">
+
+                            Payment Method
+
+                        </h2>
+
+                        <div class="payment-card">
+
+                            <div class="payment-top">
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        checked
+                                    >
+
+                                    Credit / Debit Card
+
+                                </label>
+
+                                <div class="payment-icons">
+
+                                    <i class="fab fa-cc-visa"></i>
+
+                                    <i class="fab fa-cc-mastercard"></i>
+
+                                    <i class="fab fa-cc-paypal"></i>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="input-box">
+
+                                    <label>Card Holder</label>
+
+                                    <input
+                                        type="text"
+                                        placeholder="John Doe"
+                                        required
+                                    >
+
+                                </div>
+
+                                <div class="input-box">
+
+                                    <label>Card Number</label>
+
+                                    <input
+                                        type="text"
+                                        placeholder="1234 5678 9012 3456"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="input-box">
+
+                                    <label>Expiry Date</label>
+
+                                    <input
+                                        type="text"
+                                        placeholder="MM/YY"
+                                        required
+                                    >
+
+                                </div>
+
+                                <div class="input-box">
+
+                                    <label>CVV</label>
+
+                                    <input
+                                        type="password"
+                                        placeholder="123"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+           <!-- =========================================================
+     ORDER SUMMARY
+========================================================== -->
+
+<div class="order-summary">
+
+    <h2 class="summary-title">
+
+        Order Summary
+
+    </h2>
+
+    <div id="checkout-items">
+
+        <!-- ITEMS WILL LOAD HERE -->
+
+    </div>
+
+    <div class="summary-row">
+
+        <span>Subtotal</span>
+
+        <span id="subtotal">
+
+            ₹0
+
+        </span>
+
+    </div>
+
+    <div class="summary-row">
+
+        <span>Shipping</span>
+
+        <span id="shipping">
+
+            ₹0
+
+        </span>
+
+    </div>
+
+    <div class="summary-row">
+
+        <span>GST (18%)</span>
+
+        <span id="tax">
+
+            ₹0
+
+        </span>
+
+    </div>
+
+    <div class="summary-total">
+
+        <span>Total</span>
+
+        <span id="checkout-total">
+
+            ₹0
+
+        </span>
+
+    </div>
+
+    <button
+        class="place-order-btn"
+        onclick="placeOrder()"
+    >
+
+        <i class="fas fa-lock"></i>
+
+        Place Secure Order
+
+    </button>
+
+    <div class="secure-info">
+
+        <i class="fas fa-shield-alt"></i>
+
+        Your payment information is encrypted
+        and securely protected.
+
+    </div>
+
+</div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================================
+         SUCCESS POPUP
+    ========================================================== -->
+
+    <div class="success-popup" id="success-popup">
+
+        <i class="fas fa-check-circle"></i>
+
+        <h2>
+
+            Order Placed Successfully!
+
+        </h2>
+
+        <p>
+
+            Thank you for shopping with Nexstep.
+
+        </p>
+
+    </div>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <div id="footer-placeholder"></div>
+
+    <!-- =========================================================
+         SCRIPTS
+    ========================================================== -->
+
+    <script src="localstorage.js"></script>
+    <script src="cart.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+
+        /* =========================================================
+           LOAD NAVBAR
+        ========================================================== */
+
+        fetch('navbar.html')
+
+        .then(res => res.text())
+
+        .then(html => {
+
+            document.getElementById(
+                'navbar-placeholder'
+            ).innerHTML = html;
+
+            if(typeof Cart !== 'undefined'){
+
+                Cart.updateUI();
+            }
+        });
+
+        /* =========================================================
+           LOAD FOOTER
+        ========================================================== */
+
+        fetch('footer.html')
+
+        .then(res => res.text())
+
+        .then(html => {
+
+            document.getElementById(
+                'footer-placeholder'
+            ).innerHTML = html;
+        });
+
+    
+
+/* =========================================================
+   LOAD NAVBAR
+========================================================== */
+
+fetch('navbar.html')
+
+.then(res => res.text())
+
+.then(html => {
+
+    document.getElementById(
+        'navbar-placeholder'
+    ).innerHTML = html;
+
+    if(typeof Cart !== 'undefined'){
+
+        Cart.updateUI();
+    }
+});
+
+/* =========================================================
+   LOAD FOOTER
+========================================================== */
+
+fetch('footer.html')
+
+.then(res => res.text())
+
+.then(html => {
+
+    document.getElementById(
+        'footer-placeholder'
+    ).innerHTML = html;
+});
+
+/* =========================================================
+   RENDER CHECKOUT ITEMS
+========================================================== */
+
+function renderCheckout(){
+
+    const container =
+    document.getElementById(
+        'checkout-items'
+    );
+
+    /* GET CART ITEMS */
+
+    let items =
+    JSON.parse(
+        localStorage.getItem('cart')
+    ) || [];
+
+    container.innerHTML = '';
+
+    /* EMPTY CART */
+
+    if(items.length === 0){
+
+        container.innerHTML = `
+
+            <div style="
+                text-align:center;
+                padding:30px;
+                color:rgba(255,255,255,0.7);
+            ">
+
+                Your cart is empty 🛒
+
+            </div>
+
+        `;
+
+        document.getElementById(
+            'subtotal'
+        ).textContent = '₹0';
+
+        document.getElementById(
+            'shipping'
+        ).textContent = '₹0';
+
+        document.getElementById(
+            'tax'
+        ).textContent = '₹0';
+
+        document.getElementById(
+            'checkout-total'
+        ).textContent = '₹0';
+
+        return;
+    }
+
+    let subtotal = 0;
+
+    /* SHOW PRODUCTS */
+
+    items.forEach(item => {
+
+        const itemTotal =
+        item.price * item.quantity;
+
+        subtotal += itemTotal;
+
+        container.innerHTML += `
+
+            <div class="checkout-item">
+
+                <img
+                    src="${item.image}"
+
+                    alt="${item.name}"
+
+                    onerror="
+                    this.src=
+                    'assets/images/logo/nexstep-logo.png'
+                    "
+                >
+
+                <div style="flex:1;">
+
+                    <h4>
+
+                        ${item.name}
+
+                    </h4>
+
+                    <p>
+
+                        ₹${item.price.toLocaleString('en-IN')}
+                        ×
+                        ${item.quantity}
+
+                    </p>
+
+                </div>
+
+                <div style="
+                    font-weight:700;
+                    color:#ffd700;
+                ">
+
+                    ₹${itemTotal.toLocaleString('en-IN')}
+
+                </div>
+
+            </div>
+
+        `;
+    });
+
+    /* SHIPPING */
+
+    let shipping = 0;
+
+    if(subtotal < 5000){
+
+        shipping = 199;
+    }
+
+    /* GST */
+
+    const tax =
+    subtotal * 0.18;
+
+    /* FINAL TOTAL */
+
+    const total =
+    subtotal + shipping + tax;
+
+    /* UPDATE UI */
+
+    document.getElementById(
+        'subtotal'
+    ).textContent =
+    `₹${subtotal.toLocaleString('en-IN')}`;
+
+    document.getElementById(
+        'shipping'
+    ).textContent =
+    shipping === 0
+    ? 'FREE'
+    : `₹${shipping.toLocaleString('en-IN')}`;
+
+    document.getElementById(
+        'tax'
+    ).textContent =
+    `₹${Math.round(tax).toLocaleString('en-IN')}`;
+
+    document.getElementById(
+        'checkout-total'
+    ).textContent =
+    `₹${Math.round(total).toLocaleString('en-IN')}`;
+}
+
+/* =========================================================
+   PLACE ORDER
+========================================================== */
+
+function placeOrder(){
+
+    const form =
+    document.getElementById(
+        'checkout-form'
+    );
+
+    if(!form.checkValidity()){
+
+        form.reportValidity();
+
+        return;
+    }
+
+    document.getElementById(
+        'success-popup'
+    ).classList.add(
+        'active'
+    );
+
+    /* CLEAR CART */
+
+    localStorage.removeItem(
+        'cart'
+    );
+
+    setTimeout(()=>{
+
+        window.location.href =
+        'index.html';
+
+    },3000);
+}
+
+/* =========================================================
+   INITIAL LOAD
+========================================================== */
+
+renderCheckout();
+
+</script>
+</body>
+</html>

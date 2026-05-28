@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- =========================================================
+         META
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | Nexstep</title>
+
+    <!-- =========================================================
+         FONTS + ICONS
+    ========================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <!-- =========================================================
+         PREMIUM PRODUCT DETAILS STYLING
+    ========================================================== -->
+
+    <style>
+
+        body{
+            background:
+            linear-gradient(
+                135deg,
+                #140003,
+                #2a0006,
+                #4a000d
+            );
+
+            color:white;
+            font-family:'Poppins',sans-serif;
+        }
+
+        .product-wrapper{
+            display:grid;
+            grid-template-columns:1.1fr 1fr;
+            gap:60px;
+            align-items:start;
+        }
+
+        .product-gallery{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            padding:30px;
+            border-radius:30px;
+            backdrop-filter:blur(10px);
+        }
+
+        .main-image{
+            width:100%;
+            height:500px;
+            object-fit:contain;
+            border-radius:20px;
+            background:
+            linear-gradient(
+                135deg,
+                rgba(255,255,255,0.06),
+                rgba(255,255,255,0.02)
+            );
+            padding:20px;
+        }
+
+        .thumbnail-row{
+            display:flex;
+            gap:15px;
+            margin-top:20px;
+        }
+
+        .thumbnail{
+            width:90px;
+            height:90px;
+            object-fit:cover;
+            border-radius:16px;
+            cursor:pointer;
+            border:2px solid transparent;
+            transition:0.3s ease;
+            background:white;
+            padding:5px;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active{
+            border-color:#d4af37;
+            transform:translateY(-4px);
+        }
+
+        .product-info{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            padding:40px;
+            border-radius:30px;
+            backdrop-filter:blur(10px);
+        }
+
+        .brand-tag{
+            display:inline-block;
+            background:rgba(212,175,55,0.15);
+            color:#f5d76e;
+            padding:8px 18px;
+            border-radius:999px;
+            font-size:14px;
+            margin-bottom:20px;
+        }
+
+        .product-title{
+            font-size:3rem;
+            line-height:1.1;
+            margin-bottom:15px;
+        }
+
+        .product-price{
+            font-size:2rem;
+            font-weight:800;
+            color:#f5d76e;
+            margin-bottom:15px;
+        }
+
+        .rating{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:25px;
+            color:#ffc107;
+        }
+
+        .product-desc{
+            color:rgba(255,255,255,0.75);
+            line-height:1.9;
+            margin-bottom:30px;
+        }
+
+        .feature-list{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:15px;
+            margin-bottom:35px;
+        }
+
+        .feature-box{
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.08);
+            padding:16px;
+            border-radius:16px;
+            font-size:14px;
+        }
+
+        .feature-box i{
+            color:#d4af37;
+            margin-right:8px;
+        }
+
+        .section-heading{
+            margin-bottom:15px;
+            font-size:1rem;
+            color:#f5d76e;
+            font-weight:700;
+        }
+
+        .size-grid{
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            margin-bottom:30px;
+        }
+
+        .size-btn{
+            width:60px;
+            height:50px;
+            border:none;
+            border-radius:14px;
+            background:rgba(255,255,255,0.06);
+            color:white;
+            cursor:pointer;
+            transition:0.3s ease;
+            font-weight:600;
+        }
+
+        .size-btn:hover,
+        .size-btn.active{
+            background:#d4af37;
+            color:#1a0000;
+            transform:translateY(-3px);
+        }
+
+        .quantity-wrapper{
+            display:flex;
+            align-items:center;
+            gap:15px;
+            margin-bottom:35px;
+        }
+
+        .qty-btn{
+            width:45px;
+            height:45px;
+            border:none;
+            border-radius:12px;
+            background:#d4af37;
+            color:#1a0000;
+            font-size:18px;
+            font-weight:700;
+            cursor:pointer;
+        }
+
+        .qty-display{
+            font-size:1.2rem;
+            width:40px;
+            text-align:center;
+        }
+
+        .action-buttons{
+            display:flex;
+            gap:20px;
+            margin-bottom:30px;
+        }
+
+        .premium-btn{
+            flex:1;
+            padding:18px;
+            border:none;
+            border-radius:18px;
+            font-size:1rem;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.4s ease;
+        }
+
+        .cart-btn{
+            background:
+            linear-gradient(
+                135deg,
+                #d4af37,
+                #f5d76e
+            );
+            color:#1a0000;
+        }
+
+        .buy-btn{
+            background:
+            linear-gradient(
+                135deg,
+                #ffffff,
+                #f1f1f1
+            );
+
+            color:#1a0000;
+        }
+
+        .premium-btn:hover{
+            transform:translateY(-5px);
+        }
+
+        .delivery-box{
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.08);
+            padding:20px;
+            border-radius:20px;
+            margin-top:20px;
+        }
+
+        .delivery-item{
+            display:flex;
+            gap:15px;
+            margin-bottom:15px;
+            align-items:flex-start;
+        }
+
+        .delivery-item i{
+            color:#d4af37;
+            margin-top:5px;
+        }
+
+        .delivery-item p{
+            color:rgba(255,255,255,0.75);
+            line-height:1.6;
+            font-size:14px;
+        }
+
+        .related-products{
+            margin-top:100px;
+        }
+
+        .related-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+            margin-top:40px;
+        }
+
+        .related-card{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:24px;
+            padding:25px;
+            text-align:center;
+            transition:0.4s ease;
+        }
+
+        .related-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .related-card img{
+            width:100%;
+            height:220px;
+            object-fit:contain;
+            margin-bottom:20px;
+        }
+
+        .related-card h4{
+            margin-bottom:10px;
+        }
+
+        .related-card p{
+            color:#f5d76e;
+            font-weight:700;
+            margin-bottom:15px;
+        }
+
+        @media(max-width:1000px){
+
+            .product-wrapper{
+                grid-template-columns:1fr;
+            }
+
+            .product-title{
+                font-size:2.3rem;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .feature-list{
+                grid-template-columns:1fr;
+            }
+
+            .action-buttons{
+                flex-direction:column;
+            }
+
+            .main-image{
+                height:350px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- =========================================================
+         PRODUCT DETAILS
+    ========================================================== -->
+
+    <section class="section-padding container">
+
+        <div class="product-wrapper">
+
+            <!-- PRODUCT IMAGES -->
+
+            <div class="product-gallery">
+
+                <img
+                    id="main-product-img"
+                    class="main-image"
+                    src=""
+                    alt="Nexstep Product"
+                >
+
+                <div
+                    class="thumbnail-row"
+                    id="thumbnail-row"
+                ></div>
+
+            </div>
+
+            <!-- PRODUCT INFO -->
+
+            <div class="product-info">
+
+                <div class="brand-tag">
+
+                     Indian Footwear Brand
+
+                </div>
+
+                <h1
+                    class="product-title"
+                    id="product-name"
+                ></h1>
+
+                <div
+                    class="product-price"
+                    id="product-price"
+                ></div>
+
+                <div class="rating">
+
+                    <div>
+
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+
+                    </div>
+
+                    <span style="color:white;">
+                        4.8 Rating (2,450 Reviews)
+                    </span>
+
+                </div>
+
+                <p
+                    class="product-desc"
+                    id="product-desc"
+                ></p>
+
+                <!-- FEATURES -->
+
+                <div class="feature-list">
+
+                    <div class="feature-box">
+                        <i class="fas fa-shoe-prints"></i>
+                        Ultra Comfort Sole
+                    </div>
+
+                    <div class="feature-box">
+                        <i class="fas fa-wind"></i>
+                        Breathable Mesh
+                    </div>
+
+                    <div class="feature-box">
+                        <i class="fas fa-bolt"></i>
+                        Lightweight Design
+                    </div>
+
+                    <div class="feature-box">
+                        <i class="fas fa-medal"></i>
+                        Premium Quality
+                    </div>
+
+                </div>
+
+                <!-- SIZE -->
+
+                <div>
+
+                    <div class="section-heading">
+
+                        Select Size
+
+                    </div>
+
+                    <div class="size-grid">
+
+                        <button class="size-btn">6</button>
+                        <button class="size-btn">7</button>
+                        <button class="size-btn active">8</button>
+                        <button class="size-btn">9</button>
+                        <button class="size-btn">10</button>
+
+                    </div>
+
+                </div>
+
+                <!-- QUANTITY -->
+
+                <div class="quantity-wrapper">
+
+                    <button
+                        class="qty-btn"
+                        onclick="changeQty(-1)"
+                    >
+
+                        -
+
+                    </button>
+
+                    <div
+                        class="qty-display"
+                        id="qty"
+                    >
+
+                        1
+
+                    </div>
+
+                    <button
+                        class="qty-btn"
+                        onclick="changeQty(1)"
+                    >
+
+                        +
+
+                    </button>
+
+                </div>
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="action-buttons">
+
+                    <button
+                        id="add-to-cart-btn"
+                        class="premium-btn cart-btn"
+                    >
+
+                        <i class="fas fa-shopping-cart"></i>
+                        Add to Cart
+
+                    </button>
+
+                    <button
+                        id="buy-now-btn"
+                        class="premium-btn buy-btn"
+                    >
+
+                        <i class="fas fa-bolt"></i>
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+                <!-- DELIVERY -->
+
+                <div class="delivery-box">
+
+                    <div class="delivery-item">
+
+                        <i class="fas fa-truck"></i>
+
+                        <div>
+
+                            <strong>Free Delivery</strong>
+
+                            <p>
+                                Free shipping across India on orders above ₹2999.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="delivery-item">
+
+                        <i class="fas fa-rotate-left"></i>
+
+                        <div>
+
+                            <strong>7 Days Easy Return</strong>
+
+                            <p>
+                                Hassle-free replacement and return policy.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="delivery-item">
+
+                        <i class="fas fa-shield-alt"></i>
+
+                        <div>
+
+                            <strong>Secure Payment</strong>
+
+                            <p>
+                                100% safe and encrypted transactions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <div id="footer-placeholder"></div>
+
+    <!-- =========================================================
+         SCRIPTS
+    ========================================================== -->
+
+    <script src="localstorage.js"></script>
+    <script src="toast.js"></script>
+    <script src="cart.js"></script>
+    <script src="main.js"></script>
+
+   <script>
+
+/* =========================================================
+   LOAD NAVBAR + FOOTER
+========================================================== */
+
+fetch('navbar.html')
+.then(res => res.text())
+.then(html => {
+
+    document.getElementById(
+        'navbar-placeholder'
+    ).innerHTML = html;
+
+    if(typeof Cart !== 'undefined'){
+        Cart.updateUI();
+    }
+
+});
+
+fetch('footer.html')
+.then(res => res.text())
+.then(html => {
+
+    document.getElementById(
+        'footer-placeholder'
+    ).innerHTML = html;
+
+});
+
+/* =========================================================
+   PRODUCT DATABASE
+========================================================== */
+
+const productSections = {
+
+    /* =========================================================
+       ALL PRODUCTS (10 PRODUCTS)
+    ========================================================== */
+
+    allProducts:[
+
+        {
+            id:1,
+            category:"new-arrival",
+            name:"Nexstep Air Max Elite",
+            price:14999,
+            image:"trending 1.jpeg",
+
+            gallery:[
+                "trending 1.jpeg",
+                "trending 1 v1.jpeg",
+                "trending 1 v2.jpeg"
+            ],
+
+            desc:
+            "Premium Air Cushion technology with luxury streetwear styling."
+        },
+
+        {
+            id:2,
+            category:"new-arrival",
+            name:"Nexstep Royal Runner",
+            price:11999,
+            image:"product 2.jpeg",
+
+            gallery:[
+                "product 2.jpeg",
+                "product 2 v1.jpeg",
+                "product 2 v2.jpeg"
+            ],
+
+            desc:
+            "High-performance running sneakers designed for endurance and comfort."
+        },
+
+        {
+            id:3,
+            category:"best-seller",
+            name:"Nexstep Urban Glide",
+            price:9499,
+            image:"product 3.jpeg",
+
+            gallery:[
+                "product 3.jpeg",
+                "product 3 v1.jpeg",
+                "product 3 v2.jpeg"
+            ],
+
+            desc:
+            "Modern urban sneakers crafted for everyday lifestyle and fashion."
+        },
+
+        {
+            id:4,
+            category:"best-seller",
+            name:"Nexstep Storm X",
+            price:13499,
+            image:"product 4.jpeg",
+
+            gallery:[
+                "product 4.jpeg",
+                "product 4 v1.jpeg",
+                "product 4 v2.jpeg"
+            ],
+
+            desc:
+            "Built for extreme performance with powerful grip and cushioning."
+        },
+
+        {
+            id:5,
+            category:"men",
+            name:"Nexstep Titan Force",
+            price:15999,
+            image:"product 5.jpeg",
+
+            gallery:[
+                "product 5.jpeg",
+                "product 5 v1.jpeg",
+                "product 5 v2.jpeg"
+            ],
+
+            desc:
+            "Luxury men's sneakers built for bold style and all-day comfort."
+        },
+
+        {
+            id:6,
+            category:"men",
+            name:"Nexstep Velocity Pro",
+            price:12999,
+            image:"trending 2.jpeg",
+
+            gallery:[
+                "trending 2.jpeg",
+                "trending 2 v1.jpeg",
+                "trending 2 v2.jpeg"
+            ],
+
+            desc:
+            "Dynamic sports sneakers designed for speed and premium performance."
+        },
+
+        {
+            id:7,
+            category:"women",
+            name:"Nexstep Diva Glow",
+            price:10999,
+            image:"product 7.jpeg",
+
+            gallery:[
+                "product 7.jpeg",
+                "product 7 v1.jpeg",
+            ],
+
+            desc:
+            "Elegant women's sneakers with lightweight comfort and luxury design."
+        },
+
+        {
+            id:8,
+            category:"women",
+            name:"Nexstep Trail Master",
+            price:9999,
+            image:"trending 4.jpeg",
+
+            gallery:[
+                "trending 4.jpeg",
+                "trending 4 v1.jpeg",
+                "trending 4 v2.jpeg"
+            ],
+
+            desc:
+            "Stylish running sneakers crafted for modern active lifestyles."
+        },
+
+        {
+            id:9,
+            category:"men",
+            name:"Nexstep Alpha Runner",
+            price:12499,
+            image:"product 9.jpeg",
+
+            gallery:[
+                "product 9.jpeg",
+                "product 9 v1.jpeg",
+                "product 9 v2.jpeg"
+            ],
+
+            desc:
+            "Premium running shoes with ultra responsive cushioning."
+        },
+
+        {
+            id:10,
+            category:"women",
+            name:"Nexstep Pearl Flex",
+            price:11499,
+            image:"trending 3.jpeg",
+
+            gallery:[
+                "trending 3.jpeg",
+                "trending 3 v1.jpeg",
+                "trending 3 v2.jpeg"
+            ],
+
+            desc:
+            "Luxury flexible sneakers designed for stylish comfort."
+        }
+
+    ],
+
+    /* =========================================================
+       NEW ARRIVALS (5 PRODUCTS)
+    ========================================================== */
+
+    newArrivals:[
+
+        {
+            id:11,
+            category:"new-arrival",
+            name:"Nexstep Neo Zoom",
+            price:13999,
+            image:"assets/images/products/neo-zoom.png",
+
+            gallery:[
+                "assets/images/products/neo-zoom.png",
+                "assets/images/products/neo-zoom.png",
+                "assets/images/products/neo-zoom.png"
+            ],
+
+            desc:
+            "Latest futuristic sneaker with premium air support."
+        },
+
+        {
+            id:12,
+            category:"new-arrival",
+            name:"Nexstep Hyper Glide",
+            price:14999,
+            image:"assets/images/products/hyper-glide.png",
+
+            gallery:[
+                "assets/images/products/hyper-glide.png",
+                "assets/images/products/hyper-glide.png",
+                "assets/images/products/hyper-glide.png"
+            ],
+
+            desc:
+            "Smooth comfort sneakers designed for modern streetwear."
+        },
+
+        {
+            id:13,
+            category:"new-arrival",
+            name:"Nexstep Shadow Racer",
+            price:12999,
+            image:"assets/images/products/shadow-racer.png",
+
+            gallery:[
+                "assets/images/products/shadow-racer.png",
+                "assets/images/products/shadow-racer.png",
+                "assets/images/products/shadow-racer.png"
+            ],
+
+            desc:
+            "Dark premium racer sneakers with sporty styling."
+        },
+
+        {
+            id:14,
+            category:"new-arrival",
+            name:"Nexstep Aero Max",
+            price:15999,
+            image:"assets/images/products/aero-max.png",
+
+            gallery:[
+                "assets/images/products/aero-max.png",
+                "assets/images/products/aero-max.png",
+                "assets/images/products/aero-max.png"
+            ],
+
+            desc:
+            "Ultra breathable sneakers for elite performance."
+        },
+
+        {
+            id:15,
+            category:"new-arrival",
+            name:"Nexstep Lunar Step",
+            price:14499,
+            image:"assets/images/products/lunar-step.png",
+
+            gallery:[
+                "assets/images/products/lunar-step.png",
+                "assets/images/products/lunar-step.png",
+                "assets/images/products/lunar-step.png"
+            ],
+
+            desc:
+            "Premium futuristic sneakers with lightweight comfort."
+        }
+
+    ],
+
+    /* =========================================================
+       BEST SELLERS (4 PRODUCTS)
+    ========================================================== */
+
+    bestSellers:[
+
+        {
+            id:16,
+            category:"best-seller",
+            name:"Nexstep Supreme X",
+            price:16999,
+            image:"assets/images/products/supreme-x.png",
+
+            gallery:[
+                "assets/images/products/supreme-x.png",
+                "assets/images/products/supreme-x.png",
+                "assets/images/products/supreme-x.png"
+            ],
+
+            desc:
+            "Top selling luxury sneaker loved by sneaker enthusiasts."
+        },
+
+        {
+            id:17,
+            category:"best-seller",
+            name:"Nexstep Royal Street",
+            price:13999,
+            image:"assets/images/products/royal-street.png",
+
+            gallery:[
+                "assets/images/products/royal-street.png",
+                "assets/images/products/royal-street.png",
+                "assets/images/products/royal-street.png"
+            ],
+
+            desc:
+            "Street luxury sneakers with modern bold styling."
+        },
+
+        {
+            id:18,
+            category:"best-seller",
+            name:"Nexstep Turbo Flex",
+            price:12499,
+            image:"assets/images/products/turbo-flex.png",
+
+            gallery:[
+                "assets/images/products/turbo-flex.png",
+                "assets/images/products/turbo-flex.png",
+                "assets/images/products/turbo-flex.png"
+            ],
+
+            desc:
+            "Best selling lightweight sneakers for daily comfort."
+        },
+
+        {
+            id:19,
+            category:"best-seller",
+            name:"Nexstep Power Boost",
+            price:15499,
+            image:"assets/images/products/power-boost.png",
+
+            gallery:[
+                "assets/images/products/power-boost.png",
+                "assets/images/products/power-boost.png",
+                "assets/images/products/power-boost.png"
+            ],
+
+            desc:
+            "Power packed sports sneakers with premium cushioning."
+        }
+
+    ],
+
+    /* =========================================================
+       MEN PRODUCTS (5 PRODUCTS)
+    ========================================================== */
+
+    men:[
+
+        {
+            id:20,
+            category:"men",
+            name:"Nexstep Iron Grip",
+            price:14999,
+            image:"assets/images/products/iron-grip.png",
+
+            gallery:[
+                "assets/images/products/iron-grip.png",
+                "assets/images/products/iron-grip.png",
+                "assets/images/products/iron-grip.png"
+            ],
+
+            desc:
+            "Men's luxury sneakers designed for power and performance."
+        },
+
+        {
+            id:21,
+            category:"men",
+            name:"Nexstep Street King",
+            price:11999,
+            image:"assets/images/products/street-king.png",
+
+            gallery:[
+                "assets/images/products/street-king.png",
+                "assets/images/products/street-king.png",
+                "assets/images/products/street-king.png"
+            ],
+
+            desc:
+            "Bold street sneakers with premium urban styling."
+        },
+
+        {
+            id:22,
+            category:"men",
+            name:"Nexstep Blaze Run",
+            price:12999,
+            image:"assets/images/products/blaze-run.png",
+
+            gallery:[
+                "assets/images/products/blaze-run.png",
+                "assets/images/products/blaze-run.png",
+                "assets/images/products/blaze-run.png"
+            ],
+
+            desc:
+            "Fast performance sneakers built for modern athletes."
+        },
+
+        {
+            id:23,
+            category:"men",
+            name:"Nexstep Urban Drive",
+            price:13999,
+            image:"assets/images/products/urban-drive.png",
+
+            gallery:[
+                "assets/images/products/urban-drive.png",
+                "assets/images/products/urban-drive.png",
+                "assets/images/products/urban-drive.png"
+            ],
+
+            desc:
+            "Comfortable urban sneakers with modern premium aesthetics."
+        },
+
+        {
+            id:24,
+            category:"men",
+            name:"Nexstep Velocity Edge",
+            price:14999,
+            image:"assets/images/products/velocity-edge.png",
+
+            gallery:[
+                "assets/images/products/velocity-edge.png",
+                "assets/images/products/velocity-edge.png",
+                "assets/images/products/velocity-edge.png"
+            ],
+
+            desc:
+            "Advanced sports sneakers with elite speed support."
+        }
+
+    ],
+
+    /* =========================================================
+       WOMEN PRODUCTS (5 PRODUCTS)
+    ========================================================== */
+
+    women:[
+
+        {
+            id:25,
+            category:"women",
+            name:"Nexstep Pink Aura",
+            price:11999,
+            image:"assets/images/products/pink-aura.png",
+
+            gallery:[
+                "assets/images/products/pink-aura.png",
+                "assets/images/products/pink-aura.png",
+                "assets/images/products/pink-aura.png"
+            ],
+
+            desc:
+            "Elegant women's sneakers with luxury pink styling."
+        },
+
+        {
+            id:26,
+            category:"women",
+            name:"Nexstep Crystal Run",
+            price:12999,
+            image:"assets/images/products/crystal-run.png",
+
+            gallery:[
+                "assets/images/products/crystal-run.png",
+                "assets/images/products/crystal-run.png",
+                "assets/images/products/crystal-run.png"
+            ],
+
+            desc:
+            "Stylish women's sports sneakers with crystal comfort."
+        },
+
+        {
+            id:27,
+            category:"women",
+            name:"Nexstep Velvet Move",
+            price:13499,
+            image:"assets/images/products/velvet-move.png",
+
+            gallery:[
+                "assets/images/products/velvet-move.png",
+                "assets/images/products/velvet-move.png",
+                "assets/images/products/velvet-move.png"
+            ],
+
+            desc:
+            "Luxury velvet sneakers designed for premium lifestyle."
+        },
+
+        {
+            id:28,
+            category:"women",
+            name:"Nexstep Grace Flex",
+            price:10999,
+            image:"assets/images/products/grace-flex.png",
+
+            gallery:[
+                "assets/images/products/grace-flex.png",
+                "assets/images/products/grace-flex.png",
+                "assets/images/products/grace-flex.png"
+            ],
+
+            desc:
+            "Flexible and elegant sneakers for all-day comfort."
+        },
+
+        {
+            id:29,
+            category:"women",
+            name:"Nexstep Diamond Step",
+            price:14999,
+            image:"assets/images/products/diamond-step.png",
+
+            gallery:[
+                "assets/images/products/diamond-step.png",
+                "assets/images/products/diamond-step.png",
+                "assets/images/products/diamond-step.png"
+            ],
+
+            desc:
+            "Premium designer sneakers with luxury finishing."
+        }
+
+    ]
+
+};
+
+/* =========================================================
+   MERGE ALL PRODUCTS
+========================================================== */
+
+const products = {};
+
+Object.values(productSections)
+.forEach(section => {
+
+    section.forEach(product => {
+
+        products[product.id] = product;
+
+    });
+
+});
+
+/* =========================================================
+   GET PRODUCT ID
+========================================================== */
+
+const params =
+new URLSearchParams(
+    window.location.search
+);
+
+const productId =
+params.get('id') || 1;
+
+const product =
+products[productId];
+
+/* =========================================================
+   LOAD PRODUCT DETAILS
+========================================================== */
+
+document.getElementById(
+    'product-name'
+).textContent = product.name;
+
+document.getElementById(
+    'product-price'
+).textContent =
+`₹${product.price.toLocaleString()}`;
+
+document.getElementById(
+    'product-desc'
+).textContent = product.desc;
+
+document.getElementById(
+    'main-product-img'
+).src = product.image;
+
+/* =========================================================
+   LOAD THUMBNAILS
+========================================================== */
+
+const thumbnailRow =
+document.getElementById(
+    'thumbnail-row'
+);
+
+product.gallery.forEach((img,index)=>{
+
+    thumbnailRow.innerHTML += `
+
+        <img
+            class="thumbnail ${index===0 ? 'active' : ''}"
+            src="${img}"
+            onclick="changeImage(this)"
+        >
+
+    `;
+
+});
+
+/* =========================================================
+   CHANGE IMAGE
+========================================================== */
+
+function changeImage(el){
+
+    document.getElementById(
+        'main-product-img'
+    ).src = el.src;
+
+    document
+    .querySelectorAll('.thumbnail')
+    .forEach(img => {
+
+        img.classList.remove('active');
+
+    });
+
+    el.classList.add('active');
+
+}
+
+/* =========================================================
+   SIZE SELECTION
+========================================================== */
+
+document.querySelectorAll('.size-btn')
+.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+        document.querySelectorAll('.size-btn')
+        .forEach(b => b.classList.remove('active'));
+
+        btn.classList.add('active');
+
+    });
+
+});
+
+/* =========================================================
+   QUANTITY
+========================================================== */
+
+let quantity = 1;
+
+function changeQty(value){
+
+    quantity += value;
+
+    if(quantity < 1){
+        quantity = 1;
+    }
+
+    document.getElementById(
+        'qty'
+    ).textContent = quantity;
+
+}
+
+/* =========================================================
+   ADD TO CART
+========================================================== */
+
+document.getElementById(
+    'add-to-cart-btn'
+).onclick = () => {
+
+    const selectedSize =
+    document.querySelector(
+        '.size-btn.active'
+    ).textContent;
+
+    let cart =
+    JSON.parse(
+        localStorage.getItem('cart')
+    ) || [];
+
+    const existingProduct =
+    cart.find(item =>
+        item.id == product.id &&
+        item.size == selectedSize
+    );
+
+    if(existingProduct){
+
+        existingProduct.quantity += quantity;
+
+    }else{
+
+        cart.push({
+
+            ...product,
+
+            quantity:quantity,
+
+            size:selectedSize
+
+        });
+
+    }
+
+    localStorage.setItem(
+        'cart',
+        JSON.stringify(cart)
+    );
+
+    alert(
+        `${product.name} added to cart`
+    );
+
+};
+
+/* =========================================================
+   BUY NOW
+========================================================== */
+
+document.getElementById(
+    'buy-now-btn'
+).onclick = () => {
+
+    const selectedSize =
+    document.querySelector(
+        '.size-btn.active'
+    ).textContent;
+
+    let cart = [];
+
+    cart.push({
+
+        ...product,
+
+        quantity:quantity,
+
+        size:selectedSize
+
+    });
+
+    localStorage.setItem(
+        'cart',
+        JSON.stringify(cart)
+    );
+
+    window.location.href =
+    'signup.html';
+
+};
+
+</script>
+
+</body>
+</html>

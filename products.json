@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Nexstep Air Max Elite",
+        "category": "Running",
+        "price": 14999,
+        "image": "trending 1.jpeg",
+        "description": "Premium comfort with maximum responsiveness.",
+        "rating": 4.9,
+        "reviews": 124
+    },
+    {
+        "id": 2,
+        "name": "Nexstep Royal Runner",
+        "category": "Lifestyle",
+        "price": 11999,
+        "image": "product 2.jpeg",
+        "description": "Built for speed and durability.",
+        "rating": 4.8, 
+        "reviews": 121
+    },
+    {
+        "id": 3,
+        "name": "Nexstep Urban Glide",
+        "category": "Training",
+        "price": 9499,
+        "image": "product 3.jpeg",
+        "description": "Sleek design for your daily commute.",
+        "rating": 4.7,
+        "reviews": 210
+    },
+    {
+        "id": 4,
+        "name": "Nexstep Storm X",
+        "category": "Lifestyle",
+        "price": 13499,
+        "image": "product 4.jpeg",
+        "description": "Tackle any terrain with superior grip.",
+        "rating": 4.8,
+        "reviews": 562
+    }
+]

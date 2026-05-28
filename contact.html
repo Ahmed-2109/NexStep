@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================================
+         META INFO
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Nexstep</title>
+
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         FONT AWESOME
+    ========================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- =========================================================
+         CSS FILES
+    ========================================================== -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <!-- =========================================================
+         PREMIUM CONTACT PAGE STYLE
+    ========================================================== -->
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:
+            linear-gradient(
+                135deg,
+                #120003,
+                #2b0008,
+                #4d000c
+            );
+
+            color:white;
+
+            overflow-x:hidden;
+        }
+
+        .contact-page{
+
+            padding:
+            140px 8% 80px;
+        }
+
+        .contact-header{
+
+            text-align:center;
+
+            margin-bottom:70px;
+        }
+
+        .contact-header h1{
+
+            font-size:4rem;
+
+            font-weight:900;
+
+            margin-bottom:20px;
+
+            background:
+            linear-gradient(
+                135deg,
+                #ffd700,
+                #f5d76e
+            );
+
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .contact-header p{
+
+            max-width:700px;
+
+            margin:auto;
+
+            color:
+            rgba(255,255,255,0.7);
+
+            line-height:1.8;
+
+            font-size:1.1rem;
+        }
+
+        .contact-layout{
+
+            display:grid;
+
+            grid-template-columns:
+            1fr 1.4fr;
+
+            gap:40px;
+        }
+
+        /* =========================================================
+           CONTACT INFO
+        ========================================================== */
+
+        .contact-info{
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid rgba(255,215,0,0.15);
+
+            border-radius:30px;
+
+            padding:40px;
+
+            backdrop-filter:blur(12px);
+
+            position:relative;
+
+            overflow:hidden;
+        }
+
+        .contact-info::before{
+
+            content:"";
+
+            position:absolute;
+
+            width:250px;
+            height:250px;
+
+            background:
+            radial-gradient(
+                rgba(255,215,0,0.15),
+                transparent 70%
+            );
+
+            top:-80px;
+            right:-80px;
+        }
+
+        .info-title{
+
+            font-size:2rem;
+
+            margin-bottom:20px;
+
+            color:#ffd700;
+        }
+
+        .info-description{
+
+            color:
+            rgba(255,255,255,0.7);
+
+            line-height:1.8;
+
+            margin-bottom:40px;
+        }
+
+        .info-item{
+
+            display:flex;
+
+            align-items:flex-start;
+
+            gap:18px;
+
+            margin-bottom:30px;
+        }
+
+        .info-icon{
+
+            width:60px;
+            height:60px;
+
+            border-radius:18px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            background:
+            linear-gradient(
+                135deg,
+                #ffd700,
+                #f5d76e
+            );
+
+            color:#2a0006;
+
+            font-size:1.4rem;
+
+            flex-shrink:0;
+        }
+
+        .info-text h4{
+
+            margin-bottom:8px;
+
+            font-size:1.1rem;
+        }
+
+        .info-text p{
+
+            color:
+            rgba(255,255,255,0.7);
+
+            line-height:1.7;
+        }
+
+        .social-links{
+
+            display:flex;
+
+            gap:15px;
+
+            margin-top:30px;
+        }
+
+        .social-links a{
+
+            width:50px;
+            height:50px;
+
+            border-radius:16px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            background:
+            rgba(255,255,255,0.06);
+
+            border:
+            1px solid rgba(255,215,0,0.15);
+
+            color:#ffd700;
+
+            font-size:1.2rem;
+
+            transition:0.4s ease;
+        }
+
+        .social-links a:hover{
+
+            transform:
+            translateY(-5px);
+
+            background:
+            linear-gradient(
+                135deg,
+                #ffd700,
+                #f5d76e
+            );
+
+            color:#2a0006;
+        }
+
+        /* =========================================================
+           CONTACT FORM
+        ========================================================== */
+
+        .contact-form{
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid rgba(255,215,0,0.15);
+
+            border-radius:30px;
+
+            padding:45px;
+
+            backdrop-filter:blur(12px);
+        }
+
+        .form-title{
+
+            font-size:2rem;
+
+            margin-bottom:30px;
+
+            color:#ffd700;
+        }
+
+        .form-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(2,1fr);
+
+            gap:20px;
+        }
+
+        .input-box{
+
+            margin-bottom:22px;
+        }
+
+        .input-box label{
+
+            display:block;
+
+            margin-bottom:10px;
+
+            font-weight:600;
+        }
+
+        .input-box input,
+        .input-box textarea{
+
+            width:100%;
+
+            padding:16px 18px;
+
+            border:none;
+
+            outline:none;
+
+            border-radius:18px;
+
+            background:
+            rgba(255,255,255,0.08);
+
+            color:white;
+
+            font-size:15px;
+
+            transition:0.3s ease;
+        }
+
+        .input-box input:focus,
+        .input-box textarea:focus{
+
+            border:
+            1px solid rgba(255,215,0,0.4);
+
+            box-shadow:
+            0 0 0 4px
+            rgba(255,215,0,0.08);
+        }
+
+        .input-box input::placeholder,
+        .input-box textarea::placeholder{
+
+            color:
+            rgba(255,255,255,0.45);
+        }
+
+        textarea{
+
+            resize:none;
+        }
+
+        .submit-btn{
+
+            width:100%;
+
+            padding:18px;
+
+            border:none;
+
+            border-radius:20px;
+
+            background:
+            linear-gradient(
+                135deg,
+                #ffd700,
+                #f5d76e
+            );
+
+            color:#2a0006;
+
+            font-size:16px;
+
+            font-weight:700;
+
+            cursor:pointer;
+
+            transition:0.4s ease;
+
+            margin-top:10px;
+        }
+
+        .submit-btn:hover{
+
+            transform:
+            translateY(-5px);
+
+            box-shadow:
+            0 20px 40px
+            rgba(255,215,0,0.25);
+        }
+
+        /* =========================================================
+           SUCCESS MESSAGE
+        ========================================================== */
+
+        .success-message{
+
+            margin-top:25px;
+
+            padding:18px;
+
+            border-radius:18px;
+
+            background:
+            rgba(0,255,140,0.08);
+
+            border:
+            1px solid rgba(0,255,140,0.2);
+
+            display:none;
+
+            align-items:center;
+
+            gap:12px;
+
+            color:#9dffd0;
+        }
+
+        .success-message.active{
+
+            display:flex;
+        }
+
+        /* =========================================================
+           MAP SECTION
+        ========================================================== */
+
+        .map-section{
+
+            margin-top:60px;
+
+            background:
+            rgba(255,255,255,0.05);
+
+            border:
+            1px solid rgba(255,215,0,0.15);
+
+            border-radius:30px;
+
+            padding:20px;
+
+            overflow:hidden;
+        }
+
+        .map-section iframe{
+
+            width:100%;
+
+            height:350px;
+
+            border:none;
+
+            border-radius:20px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media(max-width:1000px){
+
+            .contact-layout{
+
+                grid-template-columns:1fr;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .contact-page{
+
+                padding:
+                120px 6% 60px;
+            }
+
+            .contact-header h1{
+
+                font-size:2.8rem;
+            }
+
+            .form-grid{
+
+                grid-template-columns:1fr;
+            }
+
+            .contact-info,
+            .contact-form{
+
+                padding:30px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- =========================================================
+         CONTACT PAGE
+    ========================================================== -->
+
+    <section class="contact-page">
+
+        <!-- HEADER -->
+
+        <div class="contact-header">
+
+            <h1>Get In Touch</h1>
+
+            <p>
+
+                Have questions about your order,
+                our products, or collaborations?
+                Our Nexstep support team is always
+                ready to help you anytime.
+
+            </p>
+
+        </div>
+
+        <!-- CONTACT LAYOUT -->
+
+        <div class="contact-layout">
+
+            <!-- =========================================================
+                 CONTACT INFO
+            ========================================================== -->
+
+            <div class="contact-info">
+
+                <h2 class="info-title">
+
+                    Contact Information
+
+                </h2>
+
+                <p class="info-description">
+
+                    Reach out to us through any of
+                    the following contact methods.
+                    We usually reply within 24 hours.
+
+                </p>
+
+                <!-- EMAIL -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-envelope"></i>
+
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>Email Address</h4>
+
+                        <p>
+
+                            1am.a4ridi12@gmail.com
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- PHONE -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-phone-alt"></i>
+
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>Phone Number</h4>
+
+                        <p>
+
+                            76748 80500
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- LOCATION -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-map-marker-alt"></i>
+
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>Office Location</h4>
+
+                        <p>
+                         G.M nagar,Santosh nagar,
+                         Hyderabad.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- SUPPORT -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-headset"></i>
+
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>Customer Support</h4>
+
+                        <p>
+
+                            Available 24/7 for all
+                            Nexstep customers.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- SOCIAL LINKS -->
+
+                <div class="social-links">
+
+                    <a href="https://discord.gg/NgBzUQdQ">
+
+                        <i class="fab fa-discord"></i>
+
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/syed-ahmed-afridi-392900385/">
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- =========================================================
+                 CONTACT FORM
+            ========================================================== -->
+
+            <div class="contact-form">
+
+                <h2 class="form-title">
+
+                    Send Us A Message
+
+                </h2>
+
+                <form id="contactForm">
+
+                    <div class="form-grid">
+
+                        <!-- FIRST NAME -->
+
+                        <div class="input-box">
+
+                            <label>
+
+                                First Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="John"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- LAST NAME -->
+
+                        <div class="input-box">
+
+                            <label>
+
+                                Last Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Doe"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="input-box">
+
+                        <label>
+
+                            Email Address
+
+                        </label>
+
+                        <input
+                            type="email"
+                            placeholder="john@example.com"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- SUBJECT -->
+
+                    <div class="input-box">
+
+                        <label>
+
+                            Subject
+
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Order Inquiry"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- MESSAGE -->
+
+                    <div class="input-box">
+
+                        <label>
+
+                            Your Message
+
+                        </label>
+
+                        <textarea
+                            rows="7"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+
+                        <i class="fas fa-paper-plane"></i>
+
+                        Send Message
+
+                    </button>
+
+                    <!-- SUCCESS MESSAGE -->
+
+                    <div
+                        class="success-message"
+                        id="successMessage"
+                    >
+
+                        <i class="fas fa-check-circle"></i>
+
+                        Message sent successfully!
+                        Our team will contact you soon.
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <div id="footer-placeholder"></div>
+
+    <!-- =========================================================
+         SCRIPTS
+    ========================================================== -->
+
+    <script src="main.js"></script>
+
+    <script>
+
+        /* =========================================================
+           LOAD NAVBAR
+        ========================================================== */
+
+        fetch('navbar.html')
+
+        .then(res => res.text())
+
+        .then(html => {
+
+            document.getElementById(
+                'navbar-placeholder'
+            ).innerHTML = html;
+        });
+
+        /* =========================================================
+           LOAD FOOTER
+        ========================================================== */
+
+        fetch('footer.html')
+
+        .then(res => res.text())
+
+        .then(html => {
+
+            document.getElementById(
+                'footer-placeholder'
+            ).innerHTML = html;
+        });
+
+        /* =========================================================
+           CONTACT FORM SUBMIT
+        ========================================================== */
+
+        const form =
+        document.getElementById(
+            'contactForm'
+        );
+
+        form.addEventListener(
+            'submit',
+            function(e){
+
+                e.preventDefault();
+
+                document
+                .getElementById(
+                    'successMessage'
+                )
+                .classList.add(
+                    'active'
+                );
+
+                form.reset();
+
+                setTimeout(()=>{
+
+                    document
+                    .getElementById(
+                        'successMessage'
+                    )
+                    .classList.remove(
+                        'active'
+                    );
+
+                },4000);
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<div class="product-card hover-scale" data-id="${id}">
+    <div class="product-image" style="position: relative; background: var(--bg-alt); border-radius: 8px; overflow: hidden;">
+        <img src="${image}" alt="${name}" style="width: 100%; transition: transform 0.5s ease;">
+        <div class="product-actions" style="position: absolute; bottom: -50px; left: 0; width: 100%; display: flex; justify-content: center; gap: 10px; padding: 10px; transition: bottom 0.3s ease;">
+            <button class="btn btn-primary add-to-cart" style="padding: 8px 15px;"><i class="fas fa-shopping-cart"></i></button>
+            <button class="btn btn-outline wishlist-btn" data-id="${id}"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+    <div class="product-info" style="padding: 15px 0;">
+        <h4 style="margin-bottom: 5px;">${name}</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">${category}</p>
+        <p style="font-weight: bold; color: var(--primary-color); margin-top: 5px;">$${price}</p>
+    </div>
+</div>
+
+<style>
+    .product-card:hover .product-actions { bottom: 0; }
+    .product-card:hover .product-image img { transform: scale(1.1); }
+</style>
