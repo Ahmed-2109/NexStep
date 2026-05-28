@@ -157,7 +157,7 @@ ecommerce-frontend/
 
 ## 1️⃣ Live Demo 
 
-git clone https://github.com/your-username/nexstep.git
+https://ahmed-2109.github.io/NexStep/
 ```
 
 ## 2️⃣ Run Project
